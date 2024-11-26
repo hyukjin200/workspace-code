@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/********************************************/
+function Member(id,name){
+    this.id=id;
+    this.name=name;
+}
+console.log(typeof Member);
+
+Member.prototype={
+    instanceMethod1:function(){
+        document.write("Member객체.instanceMethod1:"+this.id+","+this.name+"<br>");
+    },
+    instanceMethod2(){
+        document.write("Member객체.instanceMethod2:"+this.id+","+this.name+"<br>");
+    }
+}
+Member.prototype.instanceMethod3=function(){
+    document.write("Member객체.instanceMethod3:"+this.id+","+this.name+"<br>");
+}
+Member.staticMethod1=function(){
+    document.write("Member.staticMethod1()<br>");
+};
+Member.staticMethod2=function(){
+    document.write("Member.staticMethod2()<br>");
+};
+
+/********************************************/
+</script>
+</head>
+<body>
+<h1>javascript static function</h1><hr/>
+<script type="text/javascript">
+    /****************instance method호출************/
+	let member1 = new Member(1,"엑스맨");
+	member1.instanceMethod1();
+	member1.instanceMethod2();
+	member1.instanceMethod3();
+    let member2 = new Member(2,"와이맨");
+    member2.instanceMethod1();
+	member2.instanceMethod2();
+	member2.instanceMethod3();
+	/****************static method호출************/
+    Member.staticMethod1();
+    Member.staticMethod2();
+    document.write(Math.random()+"<br>");
+    document.write(Math.random()+"<br>");
+    document.write(Math.random()+"<br>");
+    document.write(Math.random()+"<br>");
+    document.write(Math.random()+"<br>");
+    document.write(Math.PI+"<br>");
+    document.write(Math.round(3.89)+"<br>");
+    document.write(Math.sqrt(2)+"<br>");
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

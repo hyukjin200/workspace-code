@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Insert title here</title>
+  <script type="text/javascript">
+  /*
+  생성자함수
+  */
+    let object=new Object();
+    let array=new Array();
+    let string=new String('문자열');
+  /****************학생객체3개****************/
+  /*
+  JSON
+  */
+  const studentObject1 = {
+        id: "xxx",
+        name: "sim",
+        kor: 90,
+        eng: 95,
+        math: 99,
+        tot: 0,
+        avg: 0.0,
+        calculateTot(){
+          this.tot=this.kor+this.eng+this.math;
+        },
+        calculateAvg(){
+          this.avg=this.tot/3;
+        },
+        toString(){
+          return `${this.id},${this.name},${this.tot},${this.avg}`;
+        }
+      }; 
+  const studentObject2 = {
+        id: "yyy",
+        name: "dim",
+        kor: 56,
+        eng: 89,
+        math: 39,
+        tot: 0,
+        avg: 0.0,
+        calculateTot(){
+          this.tot=this.kor+this.eng+this.math;
+        },
+        calculateAvg(){
+          this.avg=this.tot/3;
+        },
+        toString(){
+          return `${this.id},${this.name},${this.tot},${this.avg}`;
+        }
+      }; 
+  const studentObject3 = {
+        id: "zzz",
+        name: "fim",
+        kor: 45,
+        eng: 81,
+        math: 49,
+        tot: 0,
+        avg: 0.0,
+        calculateTot(){
+          this.tot=this.kor+this.eng+this.math;
+        },
+        calculateAvg(){
+          this.avg=this.tot/3;
+        },
+        toString(){
+          return `${this.id},${this.name},${this.tot},${this.avg}`;
+        }
+      }; 
+   
+      let studentArray=[studentObject1,studentObject2,studentObject3];
+
+  </script>
+</head>
+
+<body>
+  <h1>생성자 함수1</h1>
+  <hr />
+  <script type="text/javascript">
+    document.write("--------------student 리스트---------------------<br>");
+    studentArray.forEach((student,i)=>{
+        student.calculateTot();
+        student.calculateAvg();
+        document.write((i+1)+"."+student.toString()+"<br>");
+    });
+  </script>
+</body>
+
+</html>

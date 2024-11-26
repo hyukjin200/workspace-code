@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		/*
+		생성자함수
+		var o = new Object(); 
+
+		*/
+		/*
+		학생객체를 생성해서 반환해주는 <<< 함수 >>> 작성
+		*/
+		function createStudent(id,name,kor,eng,math){
+			let studentObject={
+				id: id,
+				name:name,
+				kor: kor,
+				eng: eng,
+				math: math,
+				tot: 0,
+				avg: 0.0,
+				calculateTot(){
+				this.tot=this.kor+this.eng+this.math;
+				},
+				calculateAvg(){
+				this.avg=this.tot/3;
+				},
+				toString(){
+				return `${this.id},${this.name},${this.tot},${this.avg}`;
+				}
+			}
+			return studentObject;
+		}
+		
+		/****************학생객체****************/
+		const studentObject1 = createStudent('xxx','엑스맨',90,45,78);
+		const studentObject2 = createStudent('yyy','와이맨',89,88,90);
+		const studentObject3 = createStudent('zzz','제트맨',91,67,99);
+		const studentArray=[studentObject1,studentObject2,studentObject3];
+
+	</script>
+</head>
+
+<body>
+	<h1>생성자 함수2</h1>
+	<hr>
+	<script type="text/javascript">
+		document.write('--------------student 리스트---------------------<br>');
+		studentArray.forEach((student)=>{
+			student.calculateTot();
+			student.calculateAvg();
+			document.write(student.toString()+"<br>");
+		});
+	</script>
+</body>
+
+</html>

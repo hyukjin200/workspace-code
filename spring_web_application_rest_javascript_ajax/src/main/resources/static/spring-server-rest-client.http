@@ -1,0 +1,14 @@
+@hostname=127.0.0.1
+@port=8080
+@host={{hostname}}:{{port}}
+
+
+GET http://{{host}}/01.ajaxRequestGET/guard
+###
+POST http://{{host}}/02.ajaxRequestPOST
+Content-Type: application/x-www-form-urlencoded
+
+id=guard
+###
+@keyword=자바
+GET http://{{host}}/suggest?keyword={{keyword}}

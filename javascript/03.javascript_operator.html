@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>javascript operator</h1><hr>
+<script type="text/javascript">
+	console.log('------- ===(값과타입이일치) ------');
+	let str1='KIM';
+	let str2='KIM';
+	let str3=new String('KIM');
+	console.log(typeof str1);
+	console.log(typeof str2);
+	console.log(typeof str3);
+	console.log('값이일치:',str1==str2);
+	console.log('값과타입이일치함:',str1===str2);
+	console.log('값이일치:',str1==str3);
+	console.log('값과타입이일치안함:',str1===str3);
+	console.log('-------3항연산자-------------------------');
+	let a =12;
+	let b= 20;
+	let result = (a>b) ? a:b;	
+	console.log('result:',result);
+	let result2;
+    let result3=(a>b)? result2=a:result2=b;
+    console.log('result2:',result2);
+	console.log('result3:',result3);
+	let no=67;
+	let msg=no>0?'양수':'음수';
+	console.log('msg:',msg);
+	console.log('----------논리형타입으로자동변경------------');
+	//falsy한값
+	let zeroValue=0;	
+	let nullValue=null;	
+	let undefinedVar;
+	let emptyStr='';	
+	console.log(!!zeroValue);
+	if(zeroValue){
+
+	}else{
+		console.log(zeroValue,'--->'+'false');
+	}
+	console.log(!!nullValue);
+	console.log(!!undefinedVar);
+	console.log(!!emptyStr);
+	//truthy한값(모든데이타)
+	let zeroNumberStr='0';
+	let boolStr='true';
+	let number=213213;
+	let str='김';
+	let object={};
+	let array=[];
+	
+	if(number){
+		console.log(number,'-->','true');
+	}
+	console.log(!!zeroNumberStr);
+	console.log(!!boolStr);
+	console.log(!!number);
+	console.log(!!str);
+	console.log(!!object);
+	console.log(!!array);
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+

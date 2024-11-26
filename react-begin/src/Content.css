@@ -1,0 +1,11 @@
+h3{
+    text-align: center;
+    text-decoration: underline;
+    font-weight: 800;
+    color: cadetblue;
+}
+
+.content{
+    background-color: aliceblue;
+    color: blue;
+}

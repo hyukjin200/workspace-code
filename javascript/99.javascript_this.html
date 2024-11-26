@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>this</h1><hr>
+<script type="text/javascript">
+	
+	let obj1={
+		no:1,
+		func1:function(){
+			console.log('obj1.func1() -->this:'+this);
+			console.log('obj1.func1() -->this.no:'+this.no);
+		},
+		toString(){
+			return ">> 난Object1객체";
+		}
+	}
+	let obj2={
+		no:2,
+		func2:function(){
+			console.log('obj2.func2() -->this:'+this);
+			console.log('obj2.func2() -->this.no:'+this.no);
+		},
+		toString(){
+			return ">> 난Object2객체";
+		}
+	}
+	console.log('--------obj1.func1()----------');
+	obj1.func1();
+	console.log('--------obj2.func2()----------');
+	obj2.func2();
+	console.log('--------obj1.func1.call(obj2)----------');
+	obj1.func1.call(obj2);
+	console.log('--------obj2.func2.call(obj1)----------');
+	obj2.func2.call(obj1);
+	obj2.func2.apply(obj1);
+	console.log('--------obj1.func1.call(window)----------');
+	obj1.func1.call(window);	
+	console.log('--------obj2.func2.call(window)----------');
+	obj2.func2.call(window);	
+
+    	
+	
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

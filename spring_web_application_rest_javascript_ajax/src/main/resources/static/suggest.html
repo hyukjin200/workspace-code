@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		a {
+			text-decoration: none;
+			cursor: pointer;
+			display: block;
+		}
+
+		a:hover {
+			background: rgb(245, 245, 245);
+		}
+
+		.suggest {
+			position: absolute;
+			left: 80px;
+			top: 118px;
+			width: 150px;
+			display: block;
+		}
+	</style>
+	<script type="text/javascript" src="ajaxRequest.js"></script>
+	<script type="text/javascript">
+		async function sendKeyword() {
+			let keyword=document.search.keyword.value;
+			if(keyword==null|| keyword.trim()==''){
+				showSuggestDiv(false);
+				return;
+			}
+			const params=`keyword=${keyword}`
+			const requestURI=`http://127.0.0.1:8080/suggest?${params}`;
+			const response =await fetch(requestURI);
+			const reponseJsonObect = await response.json();
+			
+			/*
+			{
+			"status":3,
+			"msg":"",
+			"data":["자바","자라","자바라"]
+			}
+			*/
+			if(reponseJsonObect.status==0)return;
+			const template=`
+				${reponseJsonObect.data.map(keyword=>`<a href="javascript:select('${keyword}')">${keyword}</a>`).join('')}
+			`;
+			document.querySelector('#suggestList').innerHTML=template;
+			showSuggestDiv(true);
+		}
+		
+		function select(keyword) {
+			
+			document.search.keyword.value=keyword;	
+			showSuggestDiv(false);
+			//document.search.submit();
+		}
+		function showSuggestDiv(show) {
+			if(show){
+				document.querySelector('#suggest').style.display='block';
+			}else{
+				document.querySelector('#suggest').style.display='none';
+
+			}
+		}
+
+		window.onload = function () {
+			//이벤트등록
+			document.search.addEventListener('keyup',function(){
+				sendKeyword();
+			});
+			/*
+			document.search.addEventListener('focusout',function(){
+				setTimeout(function(){
+					showSuggestDiv(false);
+				},300);
+				
+			});
+			document.search.addEventListener('focusin',function(){
+				sendKeyword();
+			});
+			*/
+		}
+
+	</script>
+</head>
+
+<body>
+	<h1>제시어</h1>
+	<hr />
+	<form action="server_search.jsp" name="search">
+		<img src="http://sstatic.naver.net/search/2015/h_logo.png" height="12px" align="bottom">
+		<input type="text" name="keyword" > &nbsp;
+		<input type="submit" value="검색">
+		<div id="suggest" class="suggest">
+			<div id="suggestList" style="font-size: smaller;">
+				<!--
+				<a href="">자바라</a>	
+				<a href="">자바바</a>	
+				<a href="">자바</a>	
+				-->
+			</div>
+		</div>
+	</form>
+</body>
+
+</html>
